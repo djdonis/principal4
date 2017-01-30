@@ -89,7 +89,7 @@ server {
     		fastcgi_cache_valid any 8m;
     		fastcgi_cache_use_stale updating;
     		fastcgi_cache_bypass $http_pragma;
-    		fastcgi_cache_use_stale updating error timeout invalid_header http_500;
+    		#fastcgi_cache_use_stale updating error timeout invalid_header http_500;
 
 	#	# NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
 	#
@@ -97,7 +97,7 @@ server {
 	#	fastcgi_pass 127.0.0.1:9000;
 	#	# With php5-fpm:
 		#try_files $uri =404;
-    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
 		fastcgi_read_timeout 300;
 		fastcgi_pass unix:/var/run/php5-fpm.sock;
 		fastcgi_index index.php;
